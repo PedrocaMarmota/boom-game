@@ -10,11 +10,11 @@ buttonEasy.addEventListener('change', function () {
   if (this.checked) {
     toggleAnimationButtonsON(labelEasy);
     if (buttonMedium.checked) {
-      buttonMedium.checked = "false";
+      buttonMedium.checked = false;
       toggleAnimationButtonsOFF(labelMedium);
     }
     if (buttonHard.checked) {
-      buttonHard.checked = "false";
+      buttonHard.checked = false;
       toggleAnimationButtonsOFF(labelDificil);
     }
   }
@@ -53,14 +53,30 @@ buttonHard.addEventListener('change', function () {
 })
 
 buttonInitGame.addEventListener("click", function () {
-  buttonInitGame.remove();
   initGame();
 });
 
 
 
 function initGame() {
-  setInterval(createBalloon, 1000);
+  if (buttonEasy.checked) {
+    initInterval = setInterval(createBalloon, 1000);
+    document.querySelector('#difficultyContainer').remove();
+    buttonInitGame.remove();
+  }
+  else if (buttonMedium.checked) {
+    initInterval = setInterval(createBalloon, 800);
+    document.querySelector('#difficultyContainer').remove();
+    buttonInitGame.remove();
+  }
+  else if (buttonHard.checked) {
+    initInterval = setInterval(createBalloon, 500);
+    document.querySelector('#difficultyContainer').remove();
+    buttonInitGame.remove();
+  }
+  else {
+    alert('Selecione a dificuldade antes de inciar!');
+  }
 }
 
 const balloonsContainer = document.querySelector(".container-balloons");
@@ -82,6 +98,8 @@ function createBalloon() {
   });
 
   balloonsContainer.appendChild(elementImg);
+  balloonCounter();
+
 }
 
 function removeBalloon(element) {
@@ -92,11 +110,22 @@ function removeBalloon(element) {
 }
 
 function toggleAnimationButtonsON(buttonLabel) {
-  buttonLabel.style.animation = "toggleAnimationON 1s ease-in";
+  buttonLabel.style.animation = "toggleAnimationON 0.5s ease-in";
   buttonLabel.style.backgroundColor = "#266648";
 }
 
 function toggleAnimationButtonsOFF(buttonLabel) {
-  buttonLabel.style.animation = "toggleAnimationOFF 1s 0s ease-out";
+  buttonLabel.style.animation = "toggleAnimationOFF 0.5s 0s ease-out";
   buttonLabel.style.backgroundColor = "#81caa8";
+}
+
+function balloonCounter(counter) {
+  const imgList = document.querySelectorAll("img");
+  if (imgList.length > 30) {
+    imgList.forEach(function (element) {
+      element.remove();
+    })
+    alert('Perdeu mané kkkkkj')
+    clearInterval(initInterval);
+  }
 }
