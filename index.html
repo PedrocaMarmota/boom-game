@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./assets/baloon.ico" type="image/x-icon" />
-    <title>BOOM Devs</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <h1 class="game-title">BOOM! Devs</h1>
-      <h2 class="game-description">estoure os balões</h2>
-      <button class="btn-init-game">Jogar</button>
-    </header>
-    <section class="container-balloons"></section>
 
-    <script src="./main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/baloon.ico" type="image/x-icon" />
+  <title>BOOM Devs</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <h1 class="game-title">BOOM! Devs</h1>
+    <h2 class="game-description">estoure os balões</h2>
+    <form>
+      <input class="toggle-diff" type="checkbox" name="facil" id="facil">
+      <label id="labelFacil" for="facil">
+        Fácil
+      </label>
+      <input class="toggle-diff" name="medio" id="medio" type="checkbox">
+      <label id="labelMedio" for="medio">
+        Médio
+      </label>
+      <input class="toggle-diff" name="dificil" id="dificil" type="checkbox">
+      <label id="labelDificil" for="dificil">
+        Dificil
+      </label>
+    </form>
+    <button class="btn-init-game">Jogar</button>
+  </header>
+  <section class="container-balloons"></section>
+
+  <script src="./main.js"></script>
+</body>
+
 </html>

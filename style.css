@@ -17,6 +17,27 @@ header {
   padding: 20px 0;
 }
 
+.toggle-diff {
+  display: none;
+}
+form {
+  height: 100px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  background-color: #81caa8;
+  margin: 15px;
+  height: 40px;
+  width: 200px;
+  padding-top: 20px;
+  text-align: center;
+  border-radius: 22px;
+  z-index: 3;
+}
 .game-title,
 .game-description {
   color: #81caa8;
@@ -66,4 +87,22 @@ header {
   height: auto;
   cursor: url("./assets/alfinete.png"), auto;
   position: absolute;
+}
+
+@keyframes toggleAnimationON {
+  0% {
+    background-color: #81caa8;
+  }
+  100% {
+    background-color: #266648;
+  }
+}
+
+@keyframes toggleAnimationOFF {
+  0% {
+    background-color: #266648;
+  }
+  100% {
+    background-color: #81caa8;
+  }
 }
